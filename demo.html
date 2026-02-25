@@ -484,7 +484,7 @@
         <div class="main-content">
             
             <!-- Welcome Page -->
-            <div id="welcome" class="welcome-page fade-in-up">
+            <div id="welcome" class="page welcome-page fade-in-up">
                 <div class="welcome-hero">
                     <h2>Witamy w e-Segregatorze INOVIT</h2>
                     <p>To nie jest kolejny segregator – to cyfrowa precyzja, której potrzebuje Twój Zakład.<br>
@@ -496,7 +496,7 @@
             </div>
 
             <!-- Dashboard -->
-            <div id="dashboard" class="page-hidden">
+            <div id="dashboard" class="page page-hidden">
                 <div class="content-page fade-in-up">
                     <div class="page-header">
                         <h2 class="page-title">Centrum Dokumentacji HACCP</h2>
@@ -590,7 +590,7 @@
             </div>
 
             <!-- Wprowadzenie -->
-            <div id="wprowadzenie" class="page-hidden">
+            <div id="wprowadzenie" class="page page-hidden">
                 <div class="content-page fade-in-up">
                     <div class="page-header">
                         <h2 class="page-title">Wprowadzenie do dokumentacji HACCP</h2>
@@ -625,7 +625,7 @@
             </div>
 
             <!-- Opis zakładu -->
-            <div id="opis-zakladu" class="page-hidden">
+            <div id="opis-zakladu" class="page page-hidden">
                 <div class="content-page fade-in-up">
                     <div class="page-header">
                         <h2 class="page-title">Opis zakładu</h2>
@@ -680,7 +680,7 @@
             </div>
 
             <!-- GHP/GMP -->
-            <div id="ghp-gmp" class="page-hidden">
+            <div id="ghp-gmp" class="page page-hidden">
                 <div class="content-page fade-in-up">
                     <div class="page-header">
                         <h2 class="page-title">Program GHP/GMP</h2>
@@ -742,7 +742,7 @@
             </div>
 
             <!-- Rejestry -->
-            <div id="rejestry" class="page-hidden">
+            <div id="rejestry" class="page page-hidden">
                 <div class="content-page fade-in-up">
                     <div class="page-header">
                         <h2 class="page-title">Rejestry i zapisy</h2>
@@ -840,7 +840,7 @@
             </div>
 
             <!-- Analiza zagrożeń -->
-            <div id="analiza" class="page-hidden">
+            <div id="analiza" class="page page-hidden">
                 <div class="content-page fade-in-up">
                     <div class="page-header">
                         <h2 class="page-title">Analiza zagrożeń HACCP</h2>
@@ -906,7 +906,7 @@
             </div>
 
             <!-- Pozostałe strony - schemat, korekty, szkolenia, audyty, badania -->
-            <div id="schemat" class="page-hidden">
+            <div id="schemat" class="page page-hidden">
                 <div class="content-page fade-in-up">
                     <div class="page-header">
                         <h2 class="page-title">Schemat technologiczny</h2>
@@ -956,7 +956,7 @@
                 </div>
             </div>
 
-            <div id="korekty" class="page-hidden">
+            <div id="korekty" class="page page-hidden">
                 <div class="content-page fade-in-up">
                     <div class="page-header">
                         <h2 class="page-title">Działania korygujące</h2>
@@ -1008,7 +1008,7 @@
                 </div>
             </div>
 
-            <div id="szkolenia" class="page-hidden">
+            <div id="szkolenia" class="page page-hidden">
                 <div class="content-page fade-in-up">
                     <div class="page-header">
                         <h2 class="page-title">Szkolenia pracowników</h2>
@@ -1057,7 +1057,7 @@
                 </div>
             </div>
 
-            <div id="audyty" class="page-hidden">
+            <div id="audyty" class="page page-hidden">
                 <div class="content-page fade-in-up">
                     <div class="page-header">
                         <h2 class="page-title">Audyty i weryfikacja</h2>
@@ -1109,7 +1109,7 @@
                 </div>
             </div>
 
-            <div id="badania" class="page-hidden">
+            <div id="badania" class="page page-hidden">
                 <div class="content-page fade-in-up">
                     <div class="page-header">
                         <h2 class="page-title">Plan i rejestr badań</h2>
@@ -1189,7 +1189,7 @@
         // Page navigation
         function showPage(pageId) {
             // Hide all pages
-            const pages = document.querySelectorAll('#welcome, #dashboard, #wprowadzenie, #opis-zakladu, #ghp-gmp, #rejestry, #analiza, #schemat, #korekty, #szkolenia, #audyty, #badania');
+            const pages = document.querySelectorAll('.page');
             pages.forEach(page => {
                 page.classList.add('page-hidden');
             });
