@@ -1255,22 +1255,87 @@
             const date = now.toISOString().split('T')[0];
             const time = now.toTimeString().split(' ')[0].substring(0, 5);
             
-            const newRow = `
-                <tr>
-                    <td>${date}</td>
-                    <td>${time}</td>
-                    <td><input type="text" class="form-control" placeholder="Nazwa urządzenia" style="min-width: 150px;"></td>
-                    <td><input type="number" class="form-control" placeholder="0.0" style="width: 80px;"></td>
-                    <td><input type="text" class="form-control" placeholder="Norma" style="width: 100px;"></td>
-                    <td><select class="form-control" style="width: 100px;"><option>OK</option><option>Odchylenie</option></select></td>
-                    <td><input type="text" class="form-control" placeholder="Uwagi" style="min-width: 120px;"></td>
-                    <td><input type="text" class="form-control" placeholder="Inicjały" style="width: 80px;"></td>
-                </tr>
-            `;
+            const tbody = document.getElementById('temperature-log');
+            const row = document.createElement('tr');
+
+            // Date cell
+            const dateCell = document.createElement('td');
+            dateCell.textContent = date;
+            row.appendChild(dateCell);
+
+            // Time cell
+            const timeCell = document.createElement('td');
+            timeCell.textContent = time;
+            row.appendChild(timeCell);
+
+            // Device name cell
+            const deviceCell = document.createElement('td');
+            const deviceInput = document.createElement('input');
+            deviceInput.type = 'text';
+            deviceInput.className = 'form-control';
+            deviceInput.placeholder = 'Nazwa urządzenia';
+            deviceInput.style.minWidth = '150px';
+            deviceCell.appendChild(deviceInput);
+            row.appendChild(deviceCell);
+
+            // Temperature cell
+            const tempCell = document.createElement('td');
+            const tempInput = document.createElement('input');
+            tempInput.type = 'number';
+            tempInput.className = 'form-control';
+            tempInput.placeholder = '0.0';
+            tempInput.style.width = '80px';
+            tempCell.appendChild(tempInput);
+            row.appendChild(tempCell);
+
+            // Norm cell
+            const normCell = document.createElement('td');
+            const normInput = document.createElement('input');
+            normInput.type = 'text';
+            normInput.className = 'form-control';
+            normInput.placeholder = 'Norma';
+            normInput.style.width = '100px';
+            normCell.appendChild(normInput);
+            row.appendChild(normCell);
+
+            // Status cell
+            const statusCell = document.createElement('td');
+            const statusSelect = document.createElement('select');
+            statusSelect.className = 'form-control';
+            statusSelect.style.width = '100px';
+
+            const optionOk = document.createElement('option');
+            optionOk.textContent = 'OK';
+            statusSelect.appendChild(optionOk);
+
+            const optionDev = document.createElement('option');
+            optionDev.textContent = 'Odchylenie';
+            statusSelect.appendChild(optionDev);
             
-            if (temperatureLogTable) {
-                temperatureLogTable.insertAdjacentHTML('beforeend', newRow);
-            }
+            statusCell.appendChild(statusSelect);
+            row.appendChild(statusCell);
+
+            // Comments cell
+            const commentCell = document.createElement('td');
+            const commentInput = document.createElement('input');
+            commentInput.type = 'text';
+            commentInput.className = 'form-control';
+            commentInput.placeholder = 'Uwagi';
+            commentInput.style.minWidth = '120px';
+            commentCell.appendChild(commentInput);
+            row.appendChild(commentCell);
+
+            // Initials cell
+            const initialsCell = document.createElement('td');
+            const initialsInput = document.createElement('input');
+            initialsInput.type = 'text';
+            initialsInput.className = 'form-control';
+            initialsInput.placeholder = 'Inicjały';
+            initialsInput.style.width = '80px';
+            initialsCell.appendChild(initialsInput);
+            row.appendChild(initialsCell);
+
+            tbody.appendChild(row);
         }
 
         function addProcedure() {
