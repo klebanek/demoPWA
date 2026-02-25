@@ -1186,6 +1186,9 @@
             tests: []
         };
 
+        // DOM Elements Cache
+        const temperatureLogTable = document.getElementById('temperature-log');
+
         // Page navigation
         function showPage(pageId) {
             // Hide all pages
@@ -1265,7 +1268,9 @@
                 </tr>
             `;
             
-            document.getElementById('temperature-log').insertAdjacentHTML('beforeend', newRow);
+            if (temperatureLogTable) {
+                temperatureLogTable.insertAdjacentHTML('beforeend', newRow);
+            }
         }
 
         function addProcedure() {
