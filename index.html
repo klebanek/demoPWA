@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INOVIT e-Segregator HACCP</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-folder-open"></i>
+                    <div class="logo-text">
+                        <h1>INOVIT</h1>
+                        <p>Precyzyjna dokumentacja | Nowoczesne rozwiązania</p>
+                    </div>
+                </div>
+                <div class="header-nav">
+                    <button class="nav-btn" onclick="showPage('welcome')">
+                        <i class="fas fa-home"></i> Strona główna
+                    </button>
+                    <button class="nav-btn" onclick="exportData()">
+                        <i class="fas fa-download"></i> Eksport
+                    </button>
+                    <button class="nav-btn" onclick="showHelp()">
+                        <i class="fas fa-question-circle"></i> Pomoc
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+
+            <!-- Welcome Page -->
+            <div id="welcome" class="welcome-page fade-in-up">
+                <div class="welcome-hero">
+                    <h2>Witamy w e-Segregatorze INOVIT</h2>
+                    <p>To nie jest kolejny segregator – to cyfrowa precyzja, której potrzebuje Twój Zakład.<br>
+                    </p>
+                    <button class="start-btn" onclick="showPage('dashboard')">
+                        <i class="fas fa-rocket"></i> ROZPOCZNIJ PRACĘ
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dashboard -->
+            <div id="dashboard" class="page-hidden">
+                <div class="content-page fade-in-up">
+                    <div class="page-header">
+                        <h2 class="page-title">Centrum Dokumentacji HACCP</h2>
+                        <button class="back-btn" onclick="showPage('welcome')">
+                            <i class="fas fa-arrow-left"></i> Strona główna
+                        </button>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="module-card" onclick="showPage('wprowadzenie')">
+                            <div class="module-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h3>Wprowadzenie do dokumentacji</h3>
+                            <p>Podstawowe informacje o systemie HACCP i wymaganiach prawnych</p>
+                        </div>
+
+                        <div class="module-card" onclick="showPage('opis-zakladu')">
+                            <div class="module-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3>Opis zakładu</h3>
+                            <p>Charakterystyka zakładu, lokalizacja, infrastruktura</p>
+                        </div>
+
+                        <div class="module-card" onclick="showPage('ghp-gmp')">
+                            <div class="module-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Program GHP/GMP</h3>
+                            <p>Dobre Praktyki Higieniczne i Produkcyjne</p>
+                        </div>
+
+                        <div class="module-card" onclick="showPage('schemat')">
+                            <div class="module-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <h3>Schemat technologiczny</h3>
+                            <p>Proces produkcyjny i przepływ materiałów</p>
+                        </div>
+
+                        <div class="module-card" onclick="showPage('analiza')">
+                            <div class="module-icon">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                            <h3>Analiza zagrożeń HACCP</h3>
+                            <p>Identyfikacja i ocena zagrożeń w procesie</p>
+                        </div>
+
+                        <div class="module-card" onclick="showPage('rejestry')">
+                            <div class="module-icon">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <h3>Rejestry i zapisy</h3>
+                            <p>Dokumentacja operacyjna i monitorowanie</p>
+                        </div>
+
+                        <div class="module-card" onclick="showPage('korekty')">
+                            <div class="module-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>Działania korygujące</h3>
+                            <p>Procedury naprawcze i zapobiegawcze</p>
+                        </div>
+
+                        <div class="module-card" onclick="showPage('szkolenia')">
+                            <div class="module-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>Szkolenia pracowników</h3>
+                            <p>Program edukacyjny i certyfikacja</p>
+                        </div>
+
+                        <div class="module-card" onclick="showPage('audyty')">
+                            <div class="module-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <h3>Audyty i weryfikacja</h3>
+                            <p>Kontrola wewnętrzna i przeglądy systemu</p>
+                        </div>
+
+                        <div class="module-card" onclick="showPage('badania')">
+                            <div class="module-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h3>Plan i rejestr badań</h3>
+                            <p>Badania laboratoryjne i kontrola jakości</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wprowadzenie -->
+            <div id="wprowadzenie" class="page-hidden">
+                <div class="content-page fade-in-up">
+                    <div class="page-header">
+                        <h2 class="page-title">Wprowadzenie do dokumentacji HACCP</h2>
+                        <button class="back-btn" onclick="showPage('dashboard')">
+                            <i class="fas fa-arrow-left"></i> Centrum
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Podstawy systemu HACCP</h4>
+                        <p>System HACCP (Hazard Analysis and Critical Control Points) to systematyczne podejście do identyfikacji, oceny i kontroli zagrożeń bezpieczeństwa żywności.</p>
+
+                        <h4>Siedem zasad HACCP:</h4>
+                        <ol>
+                            <li><strong>Analiza zagrożeń</strong> - identyfikacja potencjalnych zagrożeń</li>
+                            <li><strong>Krytyczne punkty kontroli (CCP)</strong> - określenie punktów kontroli</li>
+                            <li><strong>Limity krytyczne</strong> - ustanowienie granic bezpieczeństwa</li>
+                            <li><strong>Monitorowanie</strong> - system nadzoru nad CCP</li>
+                            <li><strong>Działania korygujące</strong> - procedury naprawcze</li>
+                            <li><strong>Weryfikacja</strong> - potwierdzenie skuteczności systemu</li>
+                            <li><strong>Dokumentacja</strong> - prowadzenie zapisów</li>
+                        </ol>
+
+                        <h4>Podstawy prawne</h4>
+                        <ul>
+                            <li>Rozporządzenie (WE) nr 852/2004</li>
+                            <li>Rozporządzenie (WE) nr 853/2004</li>
+                            <li>Ustawa o bezpieczeństwie żywności i żywienia</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Opis zakładu -->
+            <div id="opis-zakladu" class="page-hidden">
+                <div class="content-page fade-in-up">
+                    <div class="page-header">
+                        <h2 class="page-title">Opis zakładu</h2>
+                        <button class="back-btn" onclick="showPage('dashboard')">
+                            <i class="fas fa-arrow-left"></i> Centrum
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Dane identyfikacyjne zakładu</h4>
+                        <div class="form-group">
+                            <label>Nazwa zakładu</label>
+                            <input type="text" class="form-control" placeholder="Wprowadź nazwę zakładu">
+                        </div>
+                        <div class="form-group">
+                            <label>Adres</label>
+                            <input type="text" class="form-control" placeholder="Ulica, numer">
+                        </div>
+                        <div class="form-group">
+                            <label>Kod pocztowy i miejscowość</label>
+                            <input type="text" class="form-control" placeholder="00-000 Miasto">
+                        </div>
+                        <div class="form-group">
+                            <label>NIP</label>
+                            <input type="text" class="form-control" placeholder="000-000-00-00">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Charakterystyka działalności</h4>
+                        <div class="form-group">
+                            <label>Rodzaj działalności</label>
+                            <select class="form-control">
+                                <option>Wybierz rodzaj działalności</option>
+                                <option>Produkcja żywności</option>
+                                <option>Handel detaliczny</option>
+                                <option>Handel hurtowy</option>
+                                <option>Gastronomia</option>
+                                <option>Catering</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Asortyment</label>
+                            <textarea class="form-control" placeholder="Opisz produkowane/sprzedawane produkty"></textarea>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-success" onclick="saveData('opis-zakladu')">
+                        <i class="fas fa-save"></i> Zapisz dane
+                    </button>
+                </div>
+            </div>
+
+            <!-- GHP/GMP -->
+            <div id="ghp-gmp" class="page-hidden">
+                <div class="content-page fade-in-up">
+                    <div class="page-header">
+                        <h2 class="page-title">Program GHP/GMP</h2>
+                        <button class="back-btn" onclick="showPage('dashboard')">
+                            <i class="fas fa-arrow-left"></i> Centrum
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Procedury obowiązkowe</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Procedura</th>
+                                    <th>Status</th>
+                                    <th>Data ostatniej aktualizacji</th>
+                                    <th>Akcje</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Higiena personelu</td>
+                                    <td><span class="status status-completed">Ukończone</span></td>
+                                    <td>2025-01-15</td>
+                                    <td><button class="btn btn-small">Edytuj</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Mycie i dezynfekcja</td>
+                                    <td><span class="status status-pending">W trakcie</span></td>
+                                    <td>2025-01-10</td>
+                                    <td><button class="btn btn-small">Edytuj</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Kontrola szkodników</td>
+                                    <td><span class="status status-overdue">Opóźnione</span></td>
+                                    <td>2024-12-20</td>
+                                    <td><button class="btn btn-small">Edytuj</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Jakość wody</td>
+                                    <td><span class="status status-completed">Ukończone</span></td>
+                                    <td>2025-01-12</td>
+                                    <td><button class="btn btn-small">Edytuj</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Gospodarowanie odpadami</td>
+                                    <td><span class="status status-pending">W trakcie</span></td>
+                                    <td>2025-01-08</td>
+                                    <td><button class="btn btn-small">Edytuj</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <button class="btn" onclick="addProcedure()">
+                        <i class="fas fa-plus"></i> Dodaj nową procedurę
+                    </button>
+                </div>
+            </div>
+
+            <!-- Rejestry -->
+            <div id="rejestry" class="page-hidden">
+                <div class="content-page fade-in-up">
+                    <div class="page-header">
+                        <h2 class="page-title">Rejestry i zapisy</h2>
+                        <button class="back-btn" onclick="showPage('dashboard')">
+                            <i class="fas fa-arrow-left"></i> Centrum
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Rejestr kontroli temperatury</h4>
+                        <div style="overflow-x: auto;">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Data</th>
+                                        <th>Godzina</th>
+                                        <th>Urządzenie</th>
+                                        <th>Temperatura (°C)</th>
+                                        <th>Norma</th>
+                                        <th>Status</th>
+                                        <th>Uwagi</th>
+                                        <th>Podpis</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="temperature-log">
+                                    <tr>
+                                        <td>2025-01-21</td>
+                                        <td>08:00</td>
+                                        <td>Chłodnia nr 1</td>
+                                        <td>2°C</td>
+                                        <td>0-4°C</td>
+                                        <td><span class="status status-completed">OK</span></td>
+                                        <td>-</td>
+                                        <td>KK</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2025-01-21</td>
+                                        <td>08:00</td>
+                                        <td>Zamrażarka nr 1</td>
+                                        <td>-18°C</td>
+                                        <td>-18°C</td>
+                                        <td><span class="status status-completed">OK</span></td>
+                                        <td>-</td>
+                                        <td>KK</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <button class="btn btn-success" onclick="addTemperatureRecord()">
+                            <i class="fas fa-plus"></i> Dodaj pomiar
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Rejestr dostaw surowca</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Data dostawy</th>
+                                    <th>Dostawca</th>
+                                    <th>Produkt</th>
+                                    <th>Ilość</th>
+                                    <th>Temperatura</th>
+                                    <th>Termin ważności</th>
+                                    <th>Ocena jakości</th>
+                                    <th>Akcje</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2025-01-20</td>
+                                    <td>Dostawca ABC</td>
+                                    <td>Mięso wołowe</td>
+                                    <td>50 kg</td>
+                                    <td>2°C</td>
+                                    <td>2025-01-25</td>
+                                    <td><span class="status status-completed">Przyjęto</span></td>
+                                    <td><button class="btn btn-small">Szczegóły</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2025-01-19</td>
+                                    <td>Dostawca XYZ</td>
+                                    <td>Warzywa świeże</td>
+                                    <td>25 kg</td>
+                                    <td>8°C</td>
+                                    <td>2025-01-22</td>
+                                    <td><span class="status status-completed">Przyjęto</span></td>
+                                    <td><button class="btn btn-small">Szczegóły</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analiza zagrożeń -->
+            <div id="analiza" class="page-hidden">
+                <div class="content-page fade-in-up">
+                    <div class="page-header">
+                        <h2 class="page-title">Analiza zagrożeń HACCP</h2>
+                        <button class="back-btn" onclick="showPage('dashboard')">
+                            <i class="fas fa-arrow-left"></i> Centrum
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Matryca analizy zagrożeń</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Etap procesu</th>
+                                    <th>Zagrożenie</th>
+                                    <th>Typ zagrożenia</th>
+                                    <th>Prawdopodobieństwo</th>
+                                    <th>Skutki</th>
+                                    <th>Ryzyko</th>
+                                    <th>CCP</th>
+                                    <th>Akcje</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Przyjęcie surowca</td>
+                                    <td>Zanieczyszczenie mikrobiologiczne</td>
+                                    <td>Biologiczne</td>
+                                    <td>Średnie</td>
+                                    <td>Wysokie</td>
+                                    <td><span class="status status-warning">Wysokie</span></td>
+                                    <td>TAK</td>
+                                    <td><button class="btn btn-small">Edytuj</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Obróbka termiczna</td>
+                                    <td>Niedogotowanie</td>
+                                    <td>Biologiczne</td>
+                                    <td>Niskie</td>
+                                    <td>Wysokie</td>
+                                    <td><span class="status status-danger">Krytyczne</span></td>
+                                    <td>TAK</td>
+                                    <td><button class="btn btn-small">Edytuj</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Przechowywanie</td>
+                                    <td>Wzrost temperatury</td>
+                                    <td>Fizyczne</td>
+                                    <td>Średnie</td>
+                                    <td>Średnie</td>
+                                    <td><span class="status status-warning">Średnie</span></td>
+                                    <td>NIE</td>
+                                    <td><button class="btn btn-small">Edytuj</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <button class="btn" onclick="addHazard()">
+                            <i class="fas fa-plus"></i> Dodaj zagrożenie
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pozostałe strony - schemat, korekty, szkolenia, audyty, badania -->
+            <div id="schemat" class="page-hidden">
+                <div class="content-page fade-in-up">
+                    <div class="page-header">
+                        <h2 class="page-title">Schemat technologiczny</h2>
+                        <button class="back-btn" onclick="showPage('dashboard')">
+                            <i class="fas fa-arrow-left"></i> Centrum
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Przepływ procesu produkcyjnego</h4>
+                        <div style="background: #f8f9fa; padding: 30px; border-radius: 8px; text-align: center;">
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                                <div style="background: var(--secondary-color); color: white; padding: 15px 30px; border-radius: 8px; font-weight: bold;">
+                                    PRZYJĘCIE SUROWCA
+                                </div>
+                                <div style="font-size: 24px; color: var(--secondary-color);">↓</div>
+                                <div style="background: var(--secondary-color); color: white; padding: 15px 30px; border-radius: 8px; font-weight: bold;">
+                                    PRZECHOWYWANIE
+                                </div>
+                                <div style="font-size: 24px; color: var(--secondary-color);">↓</div>
+                                <div style="background: var(--secondary-color); color: white; padding: 15px 30px; border-radius: 8px; font-weight: bold;">
+                                    PRZYGOTOWANIE
+                                </div>
+                                <div style="font-size: 24px; color: var(--secondary-color);">↓</div>
+                                <div style="background: var(--danger-color); color: white; padding: 15px 30px; border-radius: 8px; font-weight: bold;">
+                                    OBRÓBKA TERMICZNA (CCP)
+                                </div>
+                                <div style="font-size: 24px; color: var(--secondary-color);">↓</div>
+                                <div style="background: var(--secondary-color); color: white; padding: 15px 30px; border-radius: 8px; font-weight: bold;">
+                                    CHŁODZENIE
+                                </div>
+                                <div style="font-size: 24px; color: var(--secondary-color);">↓</div>
+                                <div style="background: var(--secondary-color); color: white; padding: 15px 30px; border-radius: 8px; font-weight: bold;">
+                                    PAKOWANIE
+                                </div>
+                                <div style="font-size: 24px; color: var(--secondary-color);">↓</div>
+                                <div style="background: var(--success-color); color: white; padding: 15px 30px; border-radius: 8px; font-weight: bold;">
+                                    WYDANIE PRODUKTU
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn" onclick="editFlowChart()">
+                            <i class="fas fa-edit"></i> Edytuj schemat
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="korekty" class="page-hidden">
+                <div class="content-page fade-in-up">
+                    <div class="page-header">
+                        <h2 class="page-title">Działania korygujące</h2>
+                        <button class="back-btn" onclick="showPage('dashboard')">
+                            <i class="fas fa-arrow-left"></i> Centrum
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Rejestr działań korygujących</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Data zgłoszenia</th>
+                                    <th>Opis problemu</th>
+                                    <th>CCP</th>
+                                    <th>Działanie podjęte</th>
+                                    <th>Odpowiedzialny</th>
+                                    <th>Status</th>
+                                    <th>Data zamknięcia</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2025-01-15</td>
+                                    <td>Przekroczenie temperatury gotowania</td>
+                                    <td>CCP-2</td>
+                                    <td>Przedłużenie czasu obróbki termicznej</td>
+                                    <td>Jan Kowalski</td>
+                                    <td><span class="status status-completed">Zamknięte</span></td>
+                                    <td>2025-01-15</td>
+                                </tr>
+                                <tr>
+                                    <td>2025-01-18</td>
+                                    <td>Awaria chłodziarki</td>
+                                    <td>CCP-1</td>
+                                    <td>Przełożenie produktów do chłodziarki zapasowej</td>
+                                    <td>Anna Nowak</td>
+                                    <td><span class="status status-pending">W trakcie</span></td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <button class="btn btn-warning" onclick="addCorrectiveAction()">
+                            <i class="fas fa-exclamation-triangle"></i> Zgłoś problem
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="szkolenia" class="page-hidden">
+                <div class="content-page fade-in-up">
+                    <div class="page-header">
+                        <h2 class="page-title">Szkolenia pracowników</h2>
+                        <button class="back-btn" onclick="showPage('dashboard')">
+                            <i class="fas fa-arrow-left"></i> Centrum
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Plan szkoleń na 2025 rok</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Temat szkolenia</th>
+                                    <th>Data planowana</th>
+                                    <th>Prowadzący</th>
+                                    <th>Uczestnicy</th>
+                                    <th>Status</th>
+                                    <th>Akcje</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Podstawy higieny żywności</td>
+                                    <td>2025-02-15</td>
+                                    <td>Krzysztof Klebaniuk</td>
+                                    <td>Wszyscy pracownicy</td>
+                                    <td><span class="status status-pending">Zaplanowane</span></td>
+                                    <td><button class="btn btn-small">Edytuj</button></td>
+                                </tr>
+                                <tr>
+                                    <td>System HACCP w praktyce</td>
+                                    <td>2025-03-20</td>
+                                    <td>Ekspert zewnętrzny</td>
+                                    <td>Kierownictwo</td>
+                                    <td><span class="status status-pending">Zaplanowane</span></td>
+                                    <td><button class="btn btn-small">Edytuj</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <button class="btn" onclick="addTraining()">
+                            <i class="fas fa-plus"></i> Dodaj szkolenie
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="audyty" class="page-hidden">
+                <div class="content-page fade-in-up">
+                    <div class="page-header">
+                        <h2 class="page-title">Audyty i weryfikacja</h2>
+                        <button class="back-btn" onclick="showPage('dashboard')">
+                            <i class="fas fa-arrow-left"></i> Centrum
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Harmonogram audytów</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Typ audytu</th>
+                                    <th>Data</th>
+                                    <th>Audytor</th>
+                                    <th>Obszar</th>
+                                    <th>Wynik</th>
+                                    <th>Uwagi</th>
+                                    <th>Raport</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Audyt wewnętrzny</td>
+                                    <td>2025-01-10</td>
+                                    <td>Jan Kowalski</td>
+                                    <td>Produkcja</td>
+                                    <td><span class="status status-completed">Pozytywny</span></td>
+                                    <td>Bez uwag</td>
+                                    <td><button class="btn btn-small">Pobierz</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Przegląd systemu</td>
+                                    <td>2025-02-28</td>
+                                    <td>Kierownictwo</td>
+                                    <td>System HACCP</td>
+                                    <td><span class="status status-pending">Zaplanowany</span></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <button class="btn" onclick="addAudit()">
+                            <i class="fas fa-search"></i> Zaplanuj audyt
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="badania" class="page-hidden">
+                <div class="content-page fade-in-up">
+                    <div class="page-header">
+                        <h2 class="page-title">Plan i rejestr badań</h2>
+                        <button class="back-btn" onclick="showPage('dashboard')">
+                            <i class="fas fa-arrow-left"></i> Centrum
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Plan badań na 2025</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Typ badania</th>
+                                    <th>Materiał</th>
+                                    <th>Częstotliwość</th>
+                                    <th>Laboratorium</th>
+                                    <th>Ostatnie badanie</th>
+                                    <th>Następne badanie</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mikrobiologiczne</td>
+                                    <td>Produkt gotowy</td>
+                                    <td>Miesięcznie</td>
+                                    <td>Lab-Test Sp. z o.o.</td>
+                                    <td>2025-01-15</td>
+                                    <td>2025-02-15</td>
+                                    <td><span class="status status-completed">Aktualne</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Woda pitna</td>
+                                    <td>Woda z sieci</td>
+                                    <td>Kwartalnie</td>
+                                    <td>Sanepid</td>
+                                    <td>2024-10-20</td>
+                                    <td>2025-01-20</td>
+                                    <td><span class="status status-overdue">Przeterminowane</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Powierzchnie kontaktu</td>
+                                    <td>Blaty robocze</td>
+                                    <td>Miesięcznie</td>
+                                    <td>Lab-Test Sp. z o.o.</td>
+                                    <td>2025-01-08</td>
+                                    <td>2025-02-08</td>
+                                    <td><span class="status status-completed">Aktualne</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <button class="btn" onclick="addTest()">
+                            <i class="fas fa-vial"></i> Dodaj badanie
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("./sw.js")
+                    .then(registration => {
+                        console.log("Service Worker registered with scope:", registration.scope);
+                    })
+                    .catch(error => {
+                        console.error("Service Worker registration failed:", error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
